@@ -1,0 +1,28 @@
+.pronoun span{
+    animation: animation 6s infinite;
+    animation-delay:3s;
+    line-height: 35px;
+}
+
+.name-div{
+    clip-path: polygon(0 1%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.char{
+    transform: translateY(100px);
+    transition: transform 0.5s;
+}
+
+
+
+@keyframes animation{
+    0%,100%{
+        top:0;
+    }
+    40%{
+        top:-35px;
+    }
+    70%{
+        top:-70px;
+    }
+  }

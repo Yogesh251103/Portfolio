@@ -1,113 +1,262 @@
-import Image from "next/image";
+"use client";
+import { React, useEffect } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
+import SplitType from "split-type";
+import Lenis from "@studio-freight/lenis";
+import "./home.css";
+import TimeLine from "./components/timeline";
 
-export default function Home() {
+const Page = () => {
+  const lenis = new Lenis();
+
+  lenis.on("scroll", (e) => {
+    console.log(e);
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+
+  useGSAP(() => {
+    const text = new SplitType("#intro", { types: "chars" });
+    const about = new SplitType("#about", { types: "chars" });
+    const experience = new SplitType("#experience", { types: "chars" });
+    const works = new SplitType("#works", { types: "chars" });
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from(".html", {
+      y: "-100%",
+      opacity: 0,
+      stagger: 0.2,
+      duration: 0.3,
+      scrollTrigger: { trigger: ".html", ease: "back", pinSpacing: false },
+    });
+
+    gsap.to(text.chars, { y: "0", stagger: 0.05, duration: 0.1 });
+
+    gsap.from("#tag", { opacity: 0, duration: 2, delay: 1.5 });
+
+    gsap.to(about.chars, {
+      y: 0,
+      stagger: 0.05,
+      duration: 0.1,
+      scrollTrigger: {
+        trigger: "#about",
+        start: "top 90%",
+        end: "bottom 20%",
+        ease: "back",
+        pinSpacing: false,
+      },
+    });
+
+    gsap.to(experience.chars, {
+      y: 0,
+      stagger: 0.05,
+      duration: 0.1,
+      scrollTrigger: {
+        trigger: "#experience",
+        start: "top 90%",
+        end: "bottom 20%",
+        ease: "back",
+        pinSpacing: false,
+      },
+    });
+
+    gsap.to(works.chars, {
+      y: 0,
+      stagger: 0.05,
+      duration: 0.1,
+      scrollTrigger: {
+        trigger: "#works",
+        start: "top 90%",
+        end: "bottom 20%",
+        ease: "back",
+        pinSpacing: false,
+      },
+    });
+
+    ScrollTrigger.create({
+      trigger: ".technologies",
+      start: "top top",
+      end: "bottom top",
+      pin: true,
+      pinSpacing: false,
+      // markers:true
+    });
+
+    ScrollTrigger.create({
+      trigger: "#about-section",
+      start: "bottom bottom",
+      end: "bottom top",
+      pin: ".content",
+      pinSpacing: false,
+      markers: true,
+    });
+  });
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <main className="flex items-center min-h-[100vh] justify-around pb-20">
+        <div className="pl-10 space-y-8 flex flex-col justify-start">
+          <h1 className="text-8xl text-center text-black bold font-extrabold">
+            Hello I'm{" "}
+            <span id="intro" className="text-purple-700 name-div">
+              Yogesh!
+            </span>
+          </h1>
+          <div id="tag" className="flex space-x-3 self-center items-end">
+            <h1 className="text-4xl font-poppins">I'm a self taught </h1>
+            <div className="pronoun h-[35px] overflow-hidden">
+              <span className="relative text-3xl font-bold scroll duration-[8s] ease-linear text-purple-700">
+                Web-developer <br />
+                Mobile App-developer <br />
+                UI/UX Designer <br />
+              </span>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
+      </main>
+      <section className="relative z-1 py-64 technologies">
+        <h1 className="text-bold text-5xl text-center font-semibold">
+          Technologies I'm familiar with
+        </h1>
+        <div className="flex justify-between px-10 pt-12 w-[80%] mx-auto">
+          <img src="icons.png" alt="html" className="h-16 w-24 html" />
+          <img src="react.svg" alt="react" className="h-16 w-24 html" />
+          <img src="node.webp" alt="react" className="h-16 w-18 html" />
+          <img src="sanity.jpg" alt="react" className="h-16 w-18 html" />
+          <img src="mongo.svg" alt="react" className="h-16 w-36 html" />
+        </div>
+      </section>
+      <section
+        id="about-section"
+        className="animated-text relative h-[400vh] bg-black rounded-[30px] z-50 pt-16 pl-16 "
+      >
+        <h1 className="name-div">
+          <span
+            id="about"
+            className="text-5xl text-white font-poppins font-extrabold"
+          >
+            ABOUT ME.
+          </span>
+        </h1>
+        <div className="w-[95%] flex justify-between pt-10">
+          <div className="w-1/2 flex justify-center">
+            <img src="myface.jpg" alt="myface" className="h-full rounded-md" />
+          </div>
+          <div className="w-1/2">
+            <p
+              id="about-content"
+              className="text-white text-xl pt-7 w-[80%] leading-10 font-poppins"
+            >
+              "I'm passionate about crafting websites that leave a lasting
+              impact and enhance a brand's impression among users. From
+              inception to deployment, I'm deeply committed to every phase of
+              the project, ensuring a remarkable user experience. Building
+              websites is not just a job; it's a journey I love to embark on."
+            </p>
+          </div>
+        </div>
+        <div className="w-full pt-56">
+          <h1 className="name-div animated-text">
+            <span
+              id="experience"
+              className="text-5xl text-white font-poppins font-extrabold"
+            >
+              MY EXPERIENCE.
             </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
+          </h1>
+          <TimeLine />
+        </div>
+        <div>
+          <h1 className="name-div animated-text">
+            <span
+              id="works"
+              className="text-5xl text-white font-poppins font-extrabold"
+            >
+              MY WORKS.
             </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+          </h1>
+        </div>
+      </section>
+      <section className="content relative bottom-[100vh]">
+        <p
+          id="about-content"
+          className="text-black text-2xl pt-7 w-[80%] leading-10 font-poppins"
         >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+          As a web developer, I specialize in creating dynamic and engaging web
+          applications and websites. With a solid foundation in front-end
+          technologies such as HTML, CSS, and JavaScript, I craft user-friendly
+          interfaces that provide seamless navigation and optimal user
+          experience. I am well-versed in modern front-end frameworks like
+          React.js, Vue.js, and Angular, enabling me to build scalable and
+          responsive web applications that meet the diverse needs of users.
+          Additionally, I have expertise in back-end development using languages
+          such as Node.js, Python, and Ruby, as well as frameworks like
+          Express.js and Django. As a web developer, I specialize in creating
+          dynamic and engaging web applications and websites. With a solid
+          foundation in front-end technologies such as HTML, CSS, and
+          JavaScript, I craft user-friendly interfaces that provide seamless
+          navigation and optimal user experience. I am well-versed in modern
+          front-end frameworks like React.js, Vue.js, and Angular, enabling me
+          to build scalable and responsive web applications that meet the
+          diverse needs of users. Additionally, I have expertise in back-end
+          development using languages such as Node.js, Python, and Ruby, as well
+          as frameworks like Express.js and Django.As a web developer, I
+          specialize in creating dynamic and engaging web applications and
+          websites. With a solid foundation in front-end technologies such as
+          HTML, CSS, and JavaScript, I craft user-friendly interfaces that
+          provide seamless navigation and optimal user experience. I am
+          well-versed in modern front-end frameworks like React.js, Vue.js, and
+          Angular, enabling me to build scalable and responsive web applications
+          that meet the diverse needs of users. Additionally, I have expertise
+          in back-end development using languages such as Node.js, Python, and
+          Ruby, as well as frameworks like Express.js and Django.As a web
+          developer, I specialize in creating dynamic and engaging web
+          applications and websites. With a solid foundation in front-end
+          technologies such as HTML, CSS, and JavaScript, I craft user-friendly
+          interfaces that provide seamless navigation and optimal user
+          experience. I am well-versed in modern front-end frameworks like
+          React.js, Vue.js, and Angular, enabling me to build scalable and
+          responsive web applications that meet the diverse needs of users.
+          Additionally, I have expertise in back-end development using languages
+          such as Node.js, Python, and Ruby, as well as frameworks like
+          Express.js and Django. I am well-versed in modern front-end frameworks
+          like React.js, Vue.js, and Angular, enabling me to build scalable and
+          responsive web applications that meet the diverse needs of users.
+          Additionally, I have expertise in back-end development using languages
+          such as Node.js, Python, and Ruby, as well as frameworks like
+          Express.js and Django.I am well-versed in modern front-end frameworks
+          like React.js, Vue.js, and Angular, enabling me to build scalable and
+          responsive web applications that meet the diverse needs of users.
+          Additionally, I have expertise in back-end development using languages
+          such as Node.js, Python, and Ruby, as well as frameworks like
+          Express.js and Django. experience. I am well-versed in modern
+          front-end frameworks like React.js, Vue.js, and Angular, enabling me
+          to build scalable and responsive web applications that meet the
+          diverse needs of users. Additionally, I have expertise in back-end
+          development using languages such as Node.js, Python, and Ruby, as well
+          as frameworks like Express.js and Django. I am well-versed in modern
+          front-end frameworks like React.js, Vue.js, and Angular, enabling me
+          to build scalable and responsive web applications that meet the
+          diverse needs of users. Additionally, I have expertise in back-end
+          development using languages such as Node.js, Python, and Ruby, as well
+          as frameworks like Express.js and Django.I am well-versed in modern
+          front-end frameworks like React.js, Vue.js, and Angular, enabling me
+          to build scalable and responsive web applications that meet the
+          diverse needs of users. Additionally, I have expertise in back-end
+          development using languages such as Node.js, Python, and Ruby, as well
+          as frameworks like Express.js and Django.
+        </p>
+      </section>
+    </>
   );
-}
+};
+
+export default Page;

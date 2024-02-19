@@ -12,6 +12,22 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        'poppins': ['Poppins', 'sans-serif'],
+      },
+      keyframes:{
+        scroll:{
+          "0%,100%":{
+            top:'0'
+        },
+        "40%":{
+            top:'-35px'
+        },
+        "70%":{
+            top:'-70px'
+        }
+        }
+      }
     },
   },
   plugins: [],
