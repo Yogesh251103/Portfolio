@@ -1,0 +1,49 @@
+body {
+    /* height: auto; */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.pronoun span{
+    animation: animation 6s infinite;
+    animation-delay:3s;
+    line-height: 35px;
+}
+
+.name-div{
+    clip-path: polygon(0 1%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.char{
+    transform: translateY(100px);
+    transition: transform 0.5s;
+}
+
+main{
+    background-image: url("/bg3.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.stroke{
+    color: transparent;
+    -webkit-text-stroke: 4px black;
+    /* font-size: 100px; */
+}
+
+.none{
+    -webkit-text-stroke: 0px;
+}
+
+@keyframes animation{
+    0%,100%{
+        top:0;
+    }
+    40%{
+        top:-37px;
+    }
+    70%{
+        top:-72px;
+    }
+}
