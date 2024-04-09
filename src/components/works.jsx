@@ -10,7 +10,7 @@ import {
 
 export function Works() {
   return (
-    <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem]">
+    <BentoGrid className="max-w-4xl mx-auto md:auto-rows-[20rem] pt-20">
       {items.map((item, i) => (
         <BentoGridItem
           key={i}
@@ -52,29 +52,29 @@ const Skeleton = ({ img }) => {
 const items = [
   {
     title: "Dog Care Center Website - A Case Study",
-    description: "Explore the birth of groundbreaking ideas and inventions.",
+    description: "A website to book appointment for dog care services.",
     header: <Skeleton img="https://imgs.search.brave.com/nhDizHNGc5q-bgrcxRQWu2cu8EIrEHKQxG9Bp6YLkGg/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9idXJz/dC5zaG9waWZ5Y2Ru/LmNvbS9waG90b3Mv/aWNlLWNyYWNrcy1v/bi1hLWZyb3plbi1z/ZWEuanBnP3dpZHRo/PTEwMDAmZm9ybWF0/PXBqcGcmZXhpZj0w/JmlwdGM9MA"/>,
     className: "md:col-span-2",
     icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "Food Delivery App",
-    description: "Dive into the transformative power of technology.",
+    description: "Food delivery application with neat UI.",
     header: <Skeleton img="https://imgs.search.brave.com/nhDizHNGc5q-bgrcxRQWu2cu8EIrEHKQxG9Bp6YLkGg/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9idXJz/dC5zaG9waWZ5Y2Ru/LmNvbS9waG90b3Mv/aWNlLWNyYWNrcy1v/bi1hLWZyb3plbi1z/ZWEuanBnP3dpZHRo/PTEwMDAmZm9ybWF0/PXBqcGcmZXhpZj0w/JmlwdGM9MA"/>,
     className: "md:col-span-1",
     icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
   },
   {
     title: "Restaurant Menu Design",
-    description: "Discover the beauty of thoughtful and functional design.",
+    description: "Re-thinking of restaurant menu design.",
     header: <Skeleton img="https://imgs.search.brave.com/nhDizHNGc5q-bgrcxRQWu2cu8EIrEHKQxG9Bp6YLkGg/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9idXJz/dC5zaG9waWZ5Y2Ru/LmNvbS9waG90b3Mv/aWNlLWNyYWNrcy1v/bi1hLWZyb3plbi1z/ZWEuanBnP3dpZHRo/PTEwMDAmZm9ybWF0/PXBqcGcmZXhpZj0w/JmlwdGM9MA"/>,
     className: "md:col-span-1",
     icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
   },
   {
-    title: "ChocoDae - A Chocolate Ecommerce Website",
+    title: "ChocoDae - A Chocolate Ecommerce Web Design",
     description:
-      "Understand the impact of effective communication in our lives.",
+      "A luxurious chocolate ecommerce website design.",
     header: <Skeleton img="https://imgs.search.brave.com/nhDizHNGc5q-bgrcxRQWu2cu8EIrEHKQxG9Bp6YLkGg/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9idXJz/dC5zaG9waWZ5Y2Ru/LmNvbS9waG90b3Mv/aWNlLWNyYWNrcy1v/bi1hLWZyb3plbi1z/ZWEuanBnP3dpZHRo/PTEwMDAmZm9ybWF0/PXBqcGcmZXhpZj0w/JmlwdGM9MA"/>,
     className: "md:col-span-2",
     icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,

@@ -15,7 +15,6 @@ const Home = () => {
     const works = new SplitType("#works", { types: "chars" });
     const cards = gsap.utils.toArray(".cards");
     const timeline = gsap.timeline();
-    var viewportHeight = window.innerHeight;
 
     const spacer = 20;
 
@@ -82,68 +81,20 @@ const Home = () => {
       // markers:true
     });
 
-    // Add animation 1 to the timeline
-    // timeline.to("#about-section", {
-    //   scrollTrigger: {
-    //     trigger: "#about-section",
-    //     start: "bottom bottom",
-    //     end: "bottom 20%",
-    //     pin: ".content",
-    //     pinSpacing: false,
-    //     // markers: true,
-    //   },
-    // });
-
-    // Animation 1
-    // ScrollTrigger.create({
-    //   trigger: "#testimony-section",
-    //   start:"top top",
-    //   endTrigger:"#about-section",
-    //   end:"bottom top",
-    //   pin:true,
-    //   pinSpacing:false,
-    // })
-
     cards.forEach((card, index) => {
       gsap.to(card, {
         scrollTrigger: {
           trigger: card,
-          start: `top-=${index * spacer} top+=30px`,
+          start: `top-=${index*spacer} top+=80`,
           endTrigger: "#testimony-section",
           end: "bottom bottom",
           pin: true,
           pinSpacing: false,
-          // markers: true,
+          markers: true,
           invalidateOnRefresh: true,
         },
       });
     });
-
-    // ScrollTrigger.create({
-    //   trigger: "#testimony-section",
-    //   start: "top top",
-    //   endTrigger: "#about-section",
-    //   end: "bottom top",
-    //   pin: true,
-    //   pinSpacing: false,
-    //   onComplete: function() {
-    //     // Animation 2
-    //     cards.forEach((card, index) => {
-    //       timeline.to(card, {
-    //         scrollTrigger: {
-    //           trigger: card,
-    //           start: `top-=${index * spacer}-100vh top+=10px`,
-    //           endTrigger: "#testimony-section",
-    //           end: "bottom bottom",
-    //           pin: true,
-    //           pinSpacing: false,
-    //           markers: true,
-    //           invalidateOnRefresh: true,
-    //         },
-    //       });
-    //     });
-    //   }
-    // });
 
     ScrollTrigger.create({
       trigger: "#convince",
@@ -158,18 +109,20 @@ const Home = () => {
 
   return (
     <>
-      <main className="flex items-center min-h-[100vh] justify-around pb-20">
-        <div className="pl-10 space-y-8 flex flex-col justify-start text-[#393632]">
-          <h1 className="text-8xl stroke text-center pr-10 bold font-extrabold font-poppins">
+      <main className="flex items-center min-h-[100vh] md:justify-around md:pb-20 xs:justify-start xs:px-10">
+        <div className="pl-10 space-y-8 flex flex-col justify-start text-[#393632] xs:pl-0 xs:items-start">
+          <h1 className="md:text-8xl stroke md:pr-10 bold font-extrabold font-poppins xs:w-full xs:text-5xl xs:pt-10">
             Hello I'm{" "}
-            <span id="intro" className="text-[#393632] none name-div">
+            <br className="md:hidden"/>
+            <span id="intro" className="text-[#393632] name-div">
               Yogesh
             </span>
           </h1>
-          <div id="tag" className="flex space-x-3 self-center items-end">
-            <h1 className="text-4xl font-poppins ">I'm a self taught </h1>
+          <div id="tag" className="flex md:space-x-3 md:self-center md:items-end xs:flex-col xs:self-start xs:space-x-0 xs:pt-8 md:flex-row">
+            <h1 className="font-poppins xs:text-[1.5rem] md:text-4xl">I'm a self taught </h1>
+            {/* <br className="md:hidden"/> */}
             <div className="pronoun h-[35px] overflow-hidden my-auto">
-              <span className="relative text-3xl font-bold scroll duration-[8s] ease-linear ">
+              <span className="relative xs:text-2xl md:text-3xl font-bold scroll duration-[8s] ease-linear">
                 Web-developer <br />
                 Mobile App-developer <br />
                 UI/UX Designer <br />
@@ -209,7 +162,7 @@ const Home = () => {
           <div className="w-1/2">
             <p
               id="about-content"
-              className="text-white text-[1.35rem] pt-7 w-[80%] leading-10 font-outfit-regular"
+              className="text-white text-[1.35rem] pt-7 w-[80%] leading-10 font-outfit-light"
             >
               "I'm passionate about crafting websites that leave a lasting
               impact and enhance a brand's impression among users. From

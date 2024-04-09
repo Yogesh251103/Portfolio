@@ -1,5 +1,4 @@
 body {
-    /* height: auto; */
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -34,6 +33,12 @@ main{
 
 .none{
     -webkit-text-stroke: 0px;
+}
+
+@media (max-width:400px) {
+    .stroke{
+        -webkit-text-stroke: 2px black;
+    }
 }
 
 @keyframes animation{

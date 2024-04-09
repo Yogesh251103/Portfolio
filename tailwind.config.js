@@ -5,6 +5,19 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      xs: "300px",
+
+      sm: "640px",
+
+      md: "768px",
+
+      lg: "1024px",
+
+      xl: "1280px",
+
+      "2xl": "1536px",
+    },
     extend: {
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],
@@ -12,6 +25,7 @@ export default {
         'outfit-bold':['outfit-bold','sanf-serif'],
         'outfit-extrabold':['outfit-extrabold','sanf-serif'],
         'outfit-regular':['outfit-regular','sanf-serif'],
+        'outfit-light':['outfit-light','sanf-serif'],
       },
     },
   },
