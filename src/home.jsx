@@ -109,20 +109,20 @@ const Home = () => {
 
   return (
     <>
-      <main className="flex items-center min-h-[100vh] md:justify-around md:pb-20 xs:justify-start xs:px-10">
-        <div className="pl-10 space-y-8 flex flex-col justify-start text-[#393632] xs:pl-0 xs:items-start">
-          <h1 className="md:text-8xl stroke md:pr-10 bold font-extrabold font-poppins xs:w-full xs:text-5xl xs:pt-10">
+      <main className="flex items-center min-h-[100vh] md:justify-around md:pb-20">
+        <div className="pl-10 space-y-14 flex flex-col justify-start text-[#393632]">
+          <h1 className="text-7xl md:text-8xl md:pr-10 bold font-extrabold font-outfit-extrabold">
             Hello I'm{" "}
             <br className="md:hidden"/>
             <span id="intro" className="text-[#393632] name-div">
               Yogesh
             </span>
           </h1>
-          <div id="tag" className="flex md:space-x-3 md:self-center md:items-end xs:flex-col xs:self-start xs:space-x-0 xs:pt-8 md:flex-row">
-            <h1 className="font-poppins xs:text-[1.5rem] md:text-4xl">I'm a self taught </h1>
+          <div id="tag" className="flex flex-col font-outfit-semibold md:flex-row md:space-x-3 md:self-center md:items-end">
+            <h1 className="text-[2.7rem] md:text-4xl">I'm a self taught</h1>
             {/* <br className="md:hidden"/> */}
             <div className="pronoun h-[35px] overflow-hidden my-auto">
-              <span className="relative xs:text-2xl md:text-3xl font-bold scroll duration-[8s] ease-linear">
+              <span className="relative text-3xl md:text-3xl font-bold scroll duration-[8s] ease-linear">
                 Web-developer <br />
                 Mobile App-developer <br />
                 UI/UX Designer <br />
@@ -131,16 +131,16 @@ const Home = () => {
           </div>
         </div>
       </main>
-      <section className="relative z-1 py-64 technologies bg-[#C7C8CC]">
-        <h1 className="text-bold text-5xl text-center font-semibold text-black">
+      <section className="py-52 md:py-64 technologies bg-[#C7C8CC]">
+        <h1 className="w-full pb-5 max-w-[412px] font-outfit-semibold text-bold text-center text-[2.75rem] md:max-w-full font-semibold text-black md:text-5xl">
           Technologies I'm familiar with
         </h1>
-        <div className="flex justify-between px-10 pt-12 w-[80%] mx-auto">
+        <div className="flex flex-wrap px-1 pt-12 max-w-[412px] justify-between md:mx-auto md:max-w-[80%]">
           <img src="icons.png" alt="html" className="h-16 w-24 html" />
           <img src="react.svg" alt="react" className="h-16 w-24 html" />
           <img src="node.webp" alt="react" className="h-16 w-18 html" />
           <img src="sanity.jpg" alt="react" className="h-16 w-18 html" />
-          <img src="mongo.svg" alt="react" className="h-16 w-36 html" />
+          <img src="mongo.svg" alt="react" className="h-16 w-36 html hidden md:block" />
         </div>
       </section>
       <section
@@ -355,15 +355,15 @@ const Home = () => {
           <span className="text-5xl font-extrabold font-outfit-extrabold text-[#393632]">
             Yogesh M
           </span>
-          <span className="pt-3 text-xl font-outfit-semibold text-[#393632]">
+          <span className="pt-3 text-xl font-outfit-light text-[#393632]">
             Web and Mobile app Developer
           </span>
           <div className="flex space-x-3 pt-5">
             <a href="https://www.linkedin.com/in/yogesh-m-16ab20216?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
-              <img src="linkedin.svg" alt="" className="h-15 w-15" />
+              <img src="linkedin.svg" alt="" className="h-12 w-12" />
             </a>
             <a href="https://github.com/Yogesh251103">
-              <img src="github.svg" alt="" className="h-15 w-15" />
+              <img src="github.svg" alt="" className="h-12 w-12" />
             </a>
           </div>
         </div>
