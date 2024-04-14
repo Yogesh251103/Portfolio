@@ -85,12 +85,12 @@ const Home = () => {
       gsap.to(card, {
         scrollTrigger: {
           trigger: card,
-          start: `top-=${index*spacer} top+=80`,
+          start: `top-=${index*spacer} top+=20`,
           endTrigger: "#testimony-section",
           end: "bottom bottom",
           pin: true,
           pinSpacing: false,
-          markers: true,
+          // markers: true,
           invalidateOnRefresh: true,
         },
       });
@@ -145,24 +145,24 @@ const Home = () => {
       </section>
       <section
         id="about-section"
-        className="animated-text relative h-[520vh] bg-black rounded-[30px] z-50 pt-16 pl-16 "
+        className="animated-text relative max-w-[412px] h-[520vh] pl-10 bg-black rounded-[30px] z-50 pt-16 md:pl-16 md:max-w-full"
       >
         <h1 className="name-div">
           <span
             id="about"
-            className="text-5xl text-white font-outfit-extrabold font-extrabold"
+            className="text-4xl text-white font-outfit-extrabold font-extrabold md:text-5xl"
           >
             ABOUT ME.
           </span>
         </h1>
-        <div className="w-[95%] flex justify-between pt-10">
-          <div className="w-1/2 flex justify-center">
+        <div className="w-[95%] flex flex-col justify-between pt-10 md:flex-row">
+          <div className="flex justify-center md:w-1/2">
             <img src="myface.jpg" alt="myface" className="h-full rounded-md" />
           </div>
-          <div className="w-1/2">
+          <div className="md:w-1/2">
             <p
               id="about-content"
-              className="text-white text-[1.35rem] pt-7 w-[80%] leading-10 font-outfit-light"
+              className="text-white text-[1.4rem] pt-7 w-[80%] leading-8 md:leading-10 font-outfit-light"
             >
               "I'm passionate about crafting websites that leave a lasting
               impact and enhance a brand's impression among users. From
@@ -176,7 +176,7 @@ const Home = () => {
           <h1 className="name-div animated-text">
             <span
               id="experience"
-              className="text-5xl text-white font-outfit-extrabold font-extrabold"
+              className="text-4xl text-white font-outfit-extrabold font-extrabold md:text-5xl"
             >
               MY EXPERIENCE.
             </span>
@@ -187,7 +187,7 @@ const Home = () => {
           <h1 className="name-div animated-text">
             <span
               id="works"
-              className="text-5xl text-white font-outfit-extrabold font-extrabold"
+              className="text-4xl text-white font-outfit-extrabold font-extrabold md:text-5xl"
             >
               MY WORKS.
             </span>
@@ -197,27 +197,33 @@ const Home = () => {
       </section>
       <section
         id="testimony-section"
-        className="content bg-[#C7C8CC] relative flex h-[300vh]"
+        className="content bg-[#C7C8CC] relative flex flex-col h-[300vh] md:flex-row"
       >
-        <div className="w-1/3">
+        <div className="max-w-[412px] md:max-w-1/3">
+          <h1
+            // id="convince"
+            className="font-extrabold text-6xl font-outfit-extrabold pb-20 pl-4 text-black convince pt-36 md:hidden"
+          >
+            Take it from them.
+          </h1>
           <h1
             id="convince"
-            className="font-extrabold text-6xl font-outfit-extrabold pb-20 pl-10 text-black convince pt-36"
+            className="font-extrabold text-6xl hidden font-outfit-extrabold pb-20 pl-10 text-black convince pt-36 md:block"
           >
             Take it from them.
           </h1>
         </div>
-        <div className="flex flex-col w-2/3">
+        <div className="flex flex-col w-[400px] pl-2 md:w-2/3">
           <div
             id="testimony-1"
-            className="cards relative bg-[black] rounded-lg h-[20rem] w-[70%] mb-10 mx-auto p-10 flex"
+            className="cards bg-[black] rounded-lg max-w-[405px] h-auto mb-10 mx-auto p-10  md:max-w-[70%]"
           >
-            <p className="text-4xl font-semibold">
+            <p className="text-4xl font-semibold pb-10">
               "Yogesh is a exceptional problem solver and a great solution
               provider. He is super punctual and great at understanding client's
               requirements."
             </p>
-            <div className="absolute bottom-9 flex justify-start gap-6">
+            <div className="self-end flex justify-start gap-6">
               <img
                 src="person.webp"
                 alt="thirumavalavan"
@@ -231,14 +237,14 @@ const Home = () => {
           </div>
           <div
             id="testimony-2"
-            className="cards relative bg-[red] rounded-lg h-[20rem] w-[70%] mb-10 mx-auto p-10 flex"
+            className="cards bg-[red] rounded-lg max-w-[405px] h-auto mb-10 mx-auto p-10  md:max-w-[70%]"
           >
-            <p className="text-4xl font-semibold">
+            <p className="text-4xl font-semibold pb-10">
               "Yogesh is a exceptional problem solver and a great solution
               provider. He is super punctual and great at understanding client's
               requirements."
             </p>
-            <div className="absolute bottom-9 flex justify-start gap-6">
+            <div className="self-end flex justify-start gap-6">
               <img
                 src="person.webp"
                 alt="thirumavalavan"
@@ -252,35 +258,14 @@ const Home = () => {
           </div>
           <div
             id="testimony-3"
-            className="cards relative bg-[yellow] rounded-lg h-[20rem] w-[70%] mb-10 mx-auto p-10 flex"
+            className="cards bg-[yellow] rounded-lg max-w-[405px] h-auto mb-10 mx-auto p-10  md:max-w-[70%]"
           >
-            <p className="text-4xl font-semibold">
+            <p className="text-4xl font-semibold pb-10">
               "Yogesh is a exceptional problem solver and a great solution
               provider. He is super punctual and great at understanding client's
               requirements."
             </p>
-            <div className="absolute bottom-9 flex justify-start gap-6">
-              <img
-                src="person.webp"
-                alt="thirumavalavan"
-                className="h-16 w-16 rounded-full object-cover"
-              />
-              <div>
-                <p className="font-bold font-poppins text-lg">THIRUMAVALAVAN</p>
-                <p className="font-poppins">@INNOVIK TECHNOLOGIES</p>
-              </div>
-            </div>
-          </div>
-          <div
-            id="testimony-4"
-            className="cards relative bg-[blue] rounded-lg h-[20rem] w-[70%] mb-10 mx-auto p-10 flex"
-          >
-            <p className="text-4xl font-semibold">
-              "Yogesh is a exceptional problem solver and a great solution
-              provider. He is super punctual and great at understanding client's
-              requirements."
-            </p>
-            <div className="absolute bottom-9 flex justify-start gap-6">
+            <div className="self-end flex justify-start gap-6">
               <img
                 src="person.webp"
                 alt="thirumavalavan"
@@ -296,12 +281,12 @@ const Home = () => {
       </section>
       <section className="bg-[#C7C8CC]">
         <div className="w-full flex">
-          <form className="w-4/6 m-3 p-3 space-y-7">
-            <h1 className="pb-5 stroke text-8xl font-extrabold font-poppins mb-2">
+          <form className="w-4/6  p-3 space-y-7 md:m-3">
+            <h1 className="pb-5 stroke text-6xl font-extrabold font-poppins mb-2 ">
               LET'S BUILD TOGETHER
             </h1>
-            <div className="flex space-x-3 w-full">
-              <div className="flex flex-col w-1/2 m-2 space-y-2">
+            <div className="flex space-x-3 w-[412px] flex-wrap md:flex-nowrap md:w-full">
+              <div className="flex flex-col w-[330px] m-2 space-y-2 md:w-1/2">
                 <label htmlFor="#name" className="text-black font-semibold font-outfit-semibold">
                   Name
                 </label>
@@ -312,7 +297,7 @@ const Home = () => {
                   className="p-5 rounded-xl border-2 border-[#6c6c6c] bg-transparent placeholder:text-[#505555] text-black focus:outline-none focus:border-[#494949] font-outfit-semibold"
                 />
               </div>
-              <div className="flex flex-col w-1/2 m-2 space-y-2">
+              <div className="flex flex-col w-[330px] m-2 space-y-2 md:w-1/2">
                 <label htmlFor="#name" className="text-black font-semibold font-outfit-semibold">
                   Email
                 </label>
@@ -332,7 +317,7 @@ const Home = () => {
                 id="phone"
                 type="number"
                 placeholder="Eg. 87545 12892"
-                className="w-full p-5 rounded-xl border-2 border-[#6c6c6c] bg-transparent placeholder:text-[#505555] text-black focus:outline-none focus:border-[#494949] font-outfit-semibold"
+                className="w-[330px] p-5 rounded-xl border-2 border-[#6c6c6c] bg-transparent placeholder:text-[#505555] text-black focus:outline-none focus:border-[#494949] font-outfit-semibold md:w-full"
               />
             </div>
             <div className="flex flex-col m-2 space-y-2">
@@ -343,31 +328,31 @@ const Home = () => {
                 id="query"
                 placeholder="Let's start the business!"
                 rows={6}
-                className="w-full p-5 rounded-xl border-2 border-[#6c6c6c] bg-transparent placeholder:text-[#505555] text-black focus:outline-none focus:border-[#494949] font-outfit-semibold"
+                className="w-[330px] p-5 rounded-xl border-2 border-[#6c6c6c] bg-transparent placeholder:text-[#505555] text-black focus:outline-none focus:border-[#494949] font-outfit-semibold md:w-full"
               ></textarea>
             </div>
           </form>
           {/* <p className="w-2/6 text-2xl font-semibold font-poppins self-center">It all starts with a simple conversation. Initial it.</p> */}
         </div>
       </section>
-      <footer className="h-[30vh] bg-[#C7C8CC] px-10 flex border border-t-2 py-10 border-[#393632]">
+      <footer className="h-auto bg-[#C7C8CC] px-6 flex flex-col border border-t-2 py-10 border-[#393632] md:px-10 md:h-[30vh] md:flex-row">
         <div className="flex flex-col w-full justify-between">
-          <span className="text-5xl font-extrabold font-outfit-extrabold text-[#393632]">
+          <span className="text-4xl font-extrabold font-outfit-extrabold text-[#393632] md:text-5xl">
             Yogesh M
           </span>
-          <span className="pt-3 text-xl font-outfit-light text-[#393632]">
+          <span className="pt-3 text-lg font-outfit-light text-[#393632] md:text-xl">
             Web and Mobile app Developer
           </span>
           <div className="flex space-x-3 pt-5">
             <a href="https://www.linkedin.com/in/yogesh-m-16ab20216?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
-              <img src="linkedin.svg" alt="" className="h-12 w-12" />
+              <img src="linkedin.svg" alt="" className="h-10 w-10 md:h-12 md:w-12" />
             </a>
             <a href="https://github.com/Yogesh251103">
-              <img src="github.svg" alt="" className="h-12 w-12" />
+              <img src="github.svg" alt="" className="h-10 w-10 md:h-12 md:w-12" />
             </a>
           </div>
         </div>
-        <div className="flex flex-col space-y-3 text-[#393632] w-1/3 font-poppins">
+        <div className="flex flex-col space-y-3 text-[#393632] w-1/3 font-poppins pt-10 md:pt-0">
           <span className="font-semibold font-outfit-semibold">
             Email :{" "}
             <a href="yogesh251003@gmail.com" className="underline">
