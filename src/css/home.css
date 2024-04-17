@@ -20,20 +20,28 @@ body {
 }
 
 main{
-    background-image: url("/bg3.svg");
+    /* background-image: url("/bg3.svg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; */
+    background-color: #303030;
 }
 
 .stroke{
     color: transparent;
-    -webkit-text-stroke: 4px black;
+    -webkit-text-stroke: 3px #FFFED2;
     /* font-size: 100px; */
 }
 
 .none{
     -webkit-text-stroke: 0px;
 }
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 
 @media (max-width:400px) {
     .stroke{
@@ -46,7 +54,7 @@ main{
         top:0;
     }
     40%{
-        top:-37px;
+        top:-35px;
     }
     70%{
         top:-72px;
