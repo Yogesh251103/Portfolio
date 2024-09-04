@@ -68,7 +68,7 @@ const Home = () => {
         start: "top bottom-=100",
         end: "bottom 20%",
         ease: "back",
-        markers: true,
+        // markers: true,
       },
     });
 
@@ -109,7 +109,7 @@ const Home = () => {
             end: "bottom bottom",
             pin: true,
             pinSpacing: false,
-            markers: true,
+            // markers: true,
             invalidateOnRefresh: true,
           },
         });
@@ -139,9 +139,10 @@ const Home = () => {
       id: "convince-pin",
       pinSpacing: false,
       // markers: true,
+      invalidateOnRefresh:true,
     });
   });
-
+   
   return (
     <>
       <main className="flex items-center min-h-[100vh] md:justify-around md:pb-20">
@@ -386,7 +387,7 @@ const Home = () => {
             </a>
           </div>
         </div>
-        <div className="flex flex-col space-y-3 text-[#fffed2ca] w-1/3 font-poppins pt-10 md:pt-0">
+        <div className="flex flex-col space-y-3 text-[#fffed2ca] md:w-1/3 font-poppins pt-10 md:pt-0">
           <span className="font-semibold font-outfit-semibold">
             Email :{" "}
             <a href="yogesh251003@gmail.com" className="underline text-[#CCC8A9] hover:text-[#FFFED2]">
